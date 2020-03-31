@@ -82,3 +82,10 @@ syntax enable
 
 set verbosefile=/tmp/vim.log
 set verbose=20
+
+if has('gui_running')
+       set guifont=Monospace\ 11
+       set guioptions-=T
+       colorscheme iceberg
+endif
+
