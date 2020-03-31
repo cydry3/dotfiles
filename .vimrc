@@ -31,7 +31,7 @@ let g:quickrun_config = {}
 autocmd BufNewFile,BufRead *.rs let g:quickrun_config.rust = {'exec': 'cargo test -- --nocapture'}
 
 "Preview, LaTeX(for vimtex)
-let g:vimtex_compiler_latexmk_engines = { '_' : '-pdfdvi' }
+autocmd BufNewFile,BufNewFile *.tex let g:vimtex_compiler_latexmk_engines = { '_' : '-pdfdvi' }
 
 "Format file, Clang
 function FormatCFile()
