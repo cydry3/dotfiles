@@ -9,6 +9,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'mattn/vim-lsp-settings'
 	Plug 'thinca/vim-quickrun'
 	Plug 'vim-airline/vim-airline'
+	Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 "Tab completion(for asyncomplete.vim)
@@ -42,6 +43,9 @@ autocmd BufNewFile,BufRead *.rs let g:quickrun_config.rust = {'exec': 'cargo tes
 
 "Preview, LaTeX(for vimtex)
 autocmd BufNewFile,BufNewFile *.tex let g:vimtex_compiler_latexmk_engines = { '_' : '-pdfdvi' }
+
+"Status/Tab line theme(for vim-airline)
+let g:airline_theme='molokai'
 
 "Format file, Clang
 function FormatCFile()
