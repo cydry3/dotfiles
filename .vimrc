@@ -8,6 +8,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'prabirshrestha/asyncomplete-lsp.vim'
 	Plug 'mattn/vim-lsp-settings'
 	Plug 'thinca/vim-quickrun'
+	Plug 'vim-airline/vim-airline'
 call plug#end()
 
 "Tab completion(for asyncomplete.vim)
