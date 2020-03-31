@@ -26,6 +26,14 @@ if executable('rls')
         \ 'whitelist': ['rust'],
         \ })
 endif
+"C family(for vim-lsp)
+if executable('clangd-7')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'clangd-7',
+        \ 'cmd': {server_info->['clangd-7']},
+        \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+        \ })
+endif
 
 "Run Testing, Rust(for vim-quickrun)
 let g:quickrun_config = {}
