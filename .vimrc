@@ -15,7 +15,7 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
 
 "Automatically popup completion candidates(for asyncomplete.vim)
-let g:asyncomplete_auto_popup = 0
+let g:asyncomplete_auto_popup = 1
 
 "Laguage Server Protocol, Rust(for vim-lsp)
 if executable('rls')
