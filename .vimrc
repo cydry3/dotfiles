@@ -10,6 +10,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'thinca/vim-quickrun'
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
+	Plug 'rhysd/rust-doc.vim'
 call plug#end()
 
 "Tab completion(for asyncomplete.vim)
@@ -46,6 +47,10 @@ autocmd BufNewFile,BufNewFile *.tex let g:vimtex_compiler_latexmk_engines = { '_
 
 "Status/Tab line theme(for vim-airline)
 let g:airline_theme='molokai'
+
+"Rust Doc directory, specified(for rust-doc)
+let doc_home = fnamemodify(substitute(system('rustup doc --path'), '\n$', '', ''), ':h')
+let g:rust_doc#downloaded_rust_doc_dir = doc_home
 
 "Format file, Clang
 function FormatCFile()
