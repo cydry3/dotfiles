@@ -11,6 +11,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'rhysd/rust-doc.vim'
+	Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 "Tab completion(for asyncomplete.vim)
