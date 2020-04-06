@@ -91,8 +91,9 @@ endif
 
 syntax enable
 
-set verbosefile=/tmp/vim.log
-set verbose=20
+"Logging Vim itself
+"set verbosefile=/tmp/vim.log
+"set verbose=20
 
 if has('gui_running')
        set guifont=Monospace\ 11
