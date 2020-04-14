@@ -12,6 +12,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'rhysd/rust-doc.vim'
 	Plug 'jiangmiao/auto-pairs'
+	Plug 'tyru/open-browser.vim'
 call plug#end()
 
 "Tab completion(for asyncomplete.vim)
@@ -52,6 +53,10 @@ let g:airline_theme='molokai'
 "Rust Doc directory, specified(for rust-doc)
 let doc_home = fnamemodify(substitute(system('rustup doc --path'), '\n$', '', ''), ':h')
 let g:rust_doc#downloaded_rust_doc_dir = doc_home
+
+"Immediately open a url(for open-browser)
+nmap gx <Plug>(openbrowser-open)
+nmap gxx <Plug>(openbrowser-search)
 
 "Format file, Clang
 function FormatCFile()
