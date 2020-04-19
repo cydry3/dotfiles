@@ -58,6 +58,9 @@ let g:rust_doc#downloaded_rust_doc_dir = doc_home
 nmap gx <Plug>(openbrowser-open)
 nmap gxx <Plug>(openbrowser-search)
 
+"Format at saving a file (for rust.vim)
+let g:rustfmt_autosave = 1
+
 "Format file, Clang
 function FormatCFile()
     let curr_line = line(".")
