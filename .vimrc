@@ -13,6 +13,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'rhysd/rust-doc.vim'
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'tyru/open-browser.vim'
+	Plug 'jremmen/vim-ripgrep'
 call plug#end()
 
 "Tab completion(for asyncomplete.vim)
