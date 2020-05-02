@@ -105,7 +105,7 @@ syntax enable
 "set verbose=20
 
 if has('gui_running')
-       set guifont=Ubuntu\ Mono\ 12
+       set guifont=Noto\ Mono\ 11
        set guioptions-=T
        colorscheme monokai
        highlight Cursor guibg=Green
