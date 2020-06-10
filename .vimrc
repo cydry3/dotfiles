@@ -33,13 +33,13 @@ if executable('rls')
         \ })
 endif
 "C family(for vim-lsp)
-if executable('clangd-7')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'clangd-7',
-        \ 'cmd': {server_info->['clangd-7']},
-        \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
-        \ })
-endif
+"if executable('clangd-7')
+"    au User lsp_setup call lsp#register_server({
+"        \ 'name': 'clangd-7',
+"        \ 'cmd': {server_info->['clangd-7']},
+"        \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+"        \ })
+"endif
 
 "Run Testing, Rust(for vim-quickrun)
 let g:quickrun_config = {}
@@ -74,8 +74,8 @@ if has('reltime')
   set incsearch
 endif
 
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=2
+set tabstop=2
 set backspace=indent,eol,start
 set history=200		
 set ruler		
