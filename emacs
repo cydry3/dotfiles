@@ -14,3 +14,18 @@
  )
 (setq c-mode-hook '(lambda ()(gtags-mode 1)))
 (setq c++-mode-hook '(lambda ()(gtags-mode 1)))
+
+;; For copying 1 line.
+(defun copy-line (arg)
+  "Copy lines (as many as prefix argument) in  the kill ring"
+  (interactive "p")
+  (kill-ring-save (line-beginning-position)
+		  (line-beginning-position (+ 1 arg)))
+  (message "%d line%s copied" arg (if (= 1 arg) "" "s")))
+
+(defun copy-one-line ()
+  "Copy 1 line simply"
+  (copy-line 0))
+
+(global-set-key "\C-c\C-k" 'copy-line)
+;;
