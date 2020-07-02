@@ -52,5 +52,5 @@
 (setq auto-save-buffers-enhanced-inteval 1)
 (setq auto-save-buffers-enhanced-quiet-save-p t)
 
-(setq backup-directory-alist '((".*" . "~/.ehist")))
+(setq make-backup-files nil)
 (setq auto-save-list-file-prefix nil)
