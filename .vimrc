@@ -16,6 +16,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'jremmen/vim-ripgrep'
 call plug#end()
 
+/g/
 "Tab completion(for asyncomplete.vim)
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
