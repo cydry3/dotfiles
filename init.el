@@ -1,60 +1,69 @@
-
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
-(add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/") t)
-(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
 (package-initialize)
 
-(require 'mozc)
-(setq default-input-method "japanese-mozc")
-
-(setq inhibit-startup-message t)
+;; Customizing with GUI.
 (custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(custom-enabled-themes (quote (tango-dark)))
- '(initial-buffer-choice nil)
- '(package-selected-packages
-   (quote
-    (twittering-mode xah-lookup company-c-headers company-fuzzy auto-complete buffer-move company hy-mode auto-save-buffers-enhanced)))
- '(tool-bar-mode nil))
+ '(package-selected-packages (quote (twittering-mode emmet-mode web-mode mozc))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
 
-(setq c-mode-hook '(lambda ()(gtags-mode 1)))
-(setq c++-mode-hook '(lambda ()(gtags-mode 1)))
+;; Presentation.
+(tool-bar-mode -1)
+(setq inhibit-startup-message t
+      shr-color-visible-luminance-min 70)
 
-(defun copy-line (arg)
-  (interactive "p")
-  (kill-ring-save (line-beginning-position)
-		  (line-beginning-position (+ 1 arg)))
-  (message "%d line%s copied" arg (if (= 1 arg) "" "s")))
+;; Backup.
+(setq backup-inhibited t
+      make-backup-files nil
+      auto-save-default nil)
 
-(defun copy-one-line ()
-  (copy-line 0))
-
-(global-set-key "\C-c\C-k" 'copy-line)
-
-(require 'auto-save-buffers-enhanced)
-(auto-save-buffers-enhanced t)
-(setq auto-save-buffers-enhanced-inteval 10)
-(setq auto-save-buffers-enhanced-quiet-save-p t)
-
-(setq make-backup-files nil)
-(setq auto-save-list-file-prefix nil)
-
-(add-hook 'prog-mode-hook 'linum-mode)
-
+;; Input method.
+(prefer-coding-system 'utf-8)
+;; Japanese Input method.
+(setq default-input-method "japanese-mozc")
 (set-fontset-font t 'japanese-jisx0208 "IPAGothic")
 
-(require 'company)
-(global-company-mode)
-
-(require 'xah-lookup)
-(require 'eww)
-(put 'xah-lookup-word-definition 'xah-lookup-url
-     "http://ejje.weblio.jp/content/word02051")
-(put 'xah-lookup-word-definition
-     'xah-lookup-browser-function 'eww)
-
-
+;; Tiny tool to insert a date time ( today ).
 (defun insert-current-date () (interactive)
-  (insert (shell-command-to-string "echo -n $(date)")))
+       (insert (shell-command-to-string "echo -n $(date)")))
+
+;; React JS, ReactNative, Expo.
+(add-to-list 'auto-mode-alist '("\\.html?$" .    web-mode))
+(add-to-list 'auto-mode-alist '("\\.[jt]s[x]?$" . web-mode))
+(add-hook 'web-mode-hook  'emmet-mode)
+(add-hook 'web-mode-hook
+          '(lambda ()
+             (setq web-mode-attr-indent-offset nil)
+             (setq web-mode-markup-indent-offset 2)
+             (setq web-mode-css-indent-offset 2)
+             (setq web-mode-code-indent-offset 2)
+             (setq indent-tabs-mode nil)
+             (setq tab-width 2)
+	     (setq web-mode-enable-current-column-highlight t)
+	     (setq web-mode-enable-auto-quoting nil)
+             ))
+
+;; Gatsby JS. (for a project)
+(setq web-mode-content-types-alist
+      '(
+	("jsx" . "/path/to/root/of/mysite/.*\\.js[x]?\\'")
+	))
+
+;; Search engine for 'eww' (default: duckduckgo)
+(setq eww-search-prefix "https://www.google.co.jp/search?q=")
+
+;; Twitter on Emacs.
+(require 'twittering-mode)
+(setq twittering-use-master-password t)
 
