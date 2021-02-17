@@ -34,7 +34,7 @@
 
 (require 'auto-save-buffers-enhanced)
 (auto-save-buffers-enhanced t)
-(setq auto-save-buffers-enhanced-inteval 1)
+(setq auto-save-buffers-enhanced-inteval 10)
 (setq auto-save-buffers-enhanced-quiet-save-p t)
 
 (setq make-backup-files nil)
