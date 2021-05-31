@@ -21,9 +21,6 @@
 (setq default-input-method "japanese-mozc")
 (set-fontset-font t 'japanese-jisx0208 "IPAGothic")
 
-(defun insert-current-date () (interactive)
-  (insert (shell-command-to-string "echo -n $(date)")))
-
 (setq eww-search-prefix "https://www.google.co.jp/search?q=")
 
 (require 'twittering-mode)
