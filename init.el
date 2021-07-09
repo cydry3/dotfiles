@@ -4,9 +4,15 @@
 (package-initialize)
 
 (custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(custom-enabled-themes (quote (tango-dark)))
  '(global-display-line-numbers-mode t)
- '(package-selected-packages (quote (twittering-mode emmet-mode web-mode mozc)))
+ '(package-selected-packages
+   (quote
+    (crystal-mode twittering-mode emmet-mode web-mode mozc)))
  '(tool-bar-mode nil))
 
 (tool-bar-mode -1)
@@ -28,6 +34,10 @@
 
 (global-display-line-numbers-mode)
 (custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(default ((t (:family "DejaVu Sans Mono" :foundry "PfEd" :slant normal :weight normal :height 128 :width normal)))))
 
 (setq-default indent-tabs-mode nil)
@@ -35,3 +45,6 @@
 (add-hook 'makefile-mode-hook
           (lambda (setq indent-tabs-mode t)))
 
+;;(autoload 'crystal-mode "crystal-mode" "Major mode for crystal files" t)
+;;(add-to-list 'auto-mode-alist '("\\.cr$" . crystal-mode))
+;;(add-to-list 'interpreter-mode-alist '("crystal" . crystal-mode))
